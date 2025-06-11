@@ -1,0 +1,22 @@
+---
+apiVersion: devopstoolkitseries.com/v1alpha1
+kind: AppClaim
+metadata:
+  annotations:
+    gitHubOrg: devopsparadox
+    gitHubRepo: try-again
+  name: try-again
+spec:
+  id: try-again
+  compositionSelector:
+    matchLabels:
+      type: aws
+      location: local
+  parameters:
+    namespace: infra
+    image: docker.io/vfarcic/try-again:latest
+    port: 8080
+    host: try-again.acme.com
+    db:
+      version: "14"
+      size: small
